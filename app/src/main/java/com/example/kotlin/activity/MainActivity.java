@@ -1,5 +1,7 @@
 package com.example.kotlin.activity;
 
+import android.os.Bundle;
+
 import com.example.kotlin.AbstractActivity;
 
 /**
@@ -12,5 +14,24 @@ public class MainActivity extends AbstractActivity {
     @Override
     public int setContentView() {
         return 0;
+    }
+
+    @Override
+    public void bindViews(Bundle saveInstanceState) {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    /**
+     * 设置侧滑不关闭界面
+     * @return
+     */
+    @Override
+    protected boolean setSwipeBack() {
+        return false;
     }
 }
