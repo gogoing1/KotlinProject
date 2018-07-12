@@ -3,6 +3,7 @@ package com.example.kotlin.activity;
 import android.os.Bundle;
 
 import com.example.kotlin.AbstractActivity;
+import com.example.kotlin.R;
 
 /**
  * Created by chenqi on 2018/7/11 17:50
@@ -13,7 +14,7 @@ public class MainActivity extends AbstractActivity {
 
     @Override
     public int setContentView() {
-        return 0;
+        return R.layout.activity_main_layout;
     }
 
     @Override
@@ -32,6 +33,6 @@ public class MainActivity extends AbstractActivity {
      */
     @Override
     protected boolean setSwipeBack() {
-        return false;
+        return true;
     }
 }
