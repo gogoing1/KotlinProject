@@ -17,11 +17,13 @@ public abstract class AbstractActivity extends AppCompatActivity {
     protected AbstractActivity mContext;
     private boolean swipeBackEnable = false;
     private boolean isFirstEntry = true;
+    private boolean swipeGoBack = false;
+    private float touchX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView();
+        setContentView(setContentView());
         ActivityStack.getInstance().addActivity(this);
         ScreenUtils.init(this);
         mContext = this;
@@ -96,7 +98,43 @@ public abstract class AbstractActivity extends AppCompatActivity {
 //            View v = getCurrentFocus();
 //        }
         if (getSwipeBackEnable()) {
-            finish();
+            if(swipeGoBack){
+                if(ev.getActionMasked() == MotionEvent.ACTION_UP){
+                    swipeGoBack = false;
+                }
+                return true;
+            }
+
+            float swipeStart = ScreenUtils.getScreenWidth() / 15;
+            float swipeDistance = ScreenUtils.getScreenWidth() / 4;
+            switch (ev.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    if (ev.getX() < swipeStart)
+                        touchX = ev.getX();
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (touchX > 0) {
+                        float dis = Math.abs(ev.getX() - touchX);
+                        if (dis > swipeDistance) {
+                            swipeGoBack = true;
+                            finish();
+                            touchX = 0;
+                            return true;
+                        }
+                    } else if (ev.getX() < swipeStart) {
+                        touchX = ev.getX();
+                        return true;
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    touchX = 0;
+                    break;
+                case MotionEvent.ACTION_CANCEL:
+                    touchX = 0;
+                    break;
+                default:
+                    break;
+            }
         }
         return super.dispatchTouchEvent(ev);
     }
@@ -113,7 +151,6 @@ public abstract class AbstractActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_old, R.anim.slide_left_to_right);
     }
 
-
     /**
      * 控制 触摸屏幕是否关闭软键盘
      * 默认开启触摸关闭
@@ -123,7 +160,6 @@ public abstract class AbstractActivity extends AppCompatActivity {
 //    protected boolean isCloseSoftKeyBoardOnTouch() {
 //        return true;
 //    }
-
     @Override
     protected void onResume() {
         super.onResume();

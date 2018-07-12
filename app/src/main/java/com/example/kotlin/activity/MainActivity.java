@@ -1,6 +1,8 @@
 package com.example.kotlin.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.kotlin.AbstractActivity;
 import com.example.kotlin.R;
@@ -19,7 +21,12 @@ public class MainActivity extends AbstractActivity {
 
     @Override
     public void bindViews(Bundle saveInstanceState) {
-
+        findViewById(R.id.tv_content).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SecondActivity.class));
+            }
+        });
     }
 
     @Override
@@ -28,11 +35,11 @@ public class MainActivity extends AbstractActivity {
     }
 
     /**
-     * 设置侧滑不关闭界面
+     * 主界面不支持侧滑关闭
      * @return
      */
     @Override
     protected boolean setSwipeBack() {
-        return true;
+        return false;
     }
 }
