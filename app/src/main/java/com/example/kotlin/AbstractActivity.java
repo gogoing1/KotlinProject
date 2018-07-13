@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.kotlin.utils.ScreenUtils;
 import com.example.kotlin.utils.SoftInputUtils;
@@ -44,6 +45,15 @@ public abstract class AbstractActivity extends AppCompatActivity {
 
     public abstract void initData();
 
+
+    /**
+     * 消息提示
+     *
+     * @param msg
+     */
+    public void toastMessage(String msg) {
+        Toast.makeText(mContext, msg, Toast.LENGTH_LONG).show();
+    }
 
     /**
      * 当前界面获取到焦点的时候 通知加载数据
