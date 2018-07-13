@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
 
 import com.example.kotlin.utils.ScreenUtils;
+import com.example.kotlin.utils.SoftInputUtils;
 
 /**
  * Created by chenqi on 2018/7/11 17:50
@@ -85,6 +87,15 @@ public abstract class AbstractActivity extends AppCompatActivity {
         return swipeBackEnable;
     }
 
+    /**
+     * 是否触摸自动关闭软键盘
+     * 默认自动关闭
+     *
+     * @return
+     */
+    protected boolean isCloseSoftKeyBoardOnTouch() {
+        return true;
+    }
 
     /**
      * 处理手势关闭界面
@@ -94,17 +105,22 @@ public abstract class AbstractActivity extends AppCompatActivity {
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-//        if (ev.getAction() == MotionEvent.ACTION_DOWN && isCloseSoftKeyBoardOnTouch()) {
-//            View v = getCurrentFocus();
-//        }
+        //处理点击屏幕任意地方关闭当前软键盘
+        if (ev.getAction() == MotionEvent.ACTION_DOWN && isCloseSoftKeyBoardOnTouch()) {
+            View v = getCurrentFocus();
+            if (SoftInputUtils.isShouldHideInput(v, ev)) {
+                SoftInputUtils.closeSoftInput(mContext, v);
+            }
+        }
+
+        //处理从屏幕左边往右滑动关闭当前Activity
         if (getSwipeBackEnable()) {
-            if(swipeGoBack){
-                if(ev.getActionMasked() == MotionEvent.ACTION_UP){
+            if (swipeGoBack) {
+                if (ev.getActionMasked() == MotionEvent.ACTION_UP) {
                     swipeGoBack = false;
                 }
                 return true;
             }
-
             float swipeStart = ScreenUtils.getScreenWidth() / 15;
             float swipeDistance = ScreenUtils.getScreenWidth() / 4;
             switch (ev.getActionMasked()) {
@@ -151,15 +167,6 @@ public abstract class AbstractActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_old, R.anim.slide_left_to_right);
     }
 
-    /**
-     * 控制 触摸屏幕是否关闭软键盘
-     * 默认开启触摸关闭
-     *
-     * @return
-     */
-//    protected boolean isCloseSoftKeyBoardOnTouch() {
-//        return true;
-//    }
     @Override
     protected void onResume() {
         super.onResume();
