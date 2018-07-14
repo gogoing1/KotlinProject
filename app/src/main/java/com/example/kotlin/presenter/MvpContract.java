@@ -14,6 +14,8 @@ public class MvpContract {
         public Presenter(View view) {
             super(view);
         }
+
+        abstract void getLoginStatus();
     }
 
     public interface View extends BaseView {

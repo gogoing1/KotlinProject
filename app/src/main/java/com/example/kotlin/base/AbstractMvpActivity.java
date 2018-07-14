@@ -3,6 +3,8 @@ package com.example.kotlin.base;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
+import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
@@ -36,6 +38,20 @@ public abstract class AbstractMvpActivity<T extends BasePresenter> extends Abstr
      * @return
      */
     protected abstract T newPresenter();
+
+
+    /**
+     * Toast提示
+     *
+     * @param msg
+     */
+    @Override
+    public void showToastMessage(String msg) {
+        if (TextUtils.isEmpty(msg)) {
+            throw new IllegalArgumentException("msg is empty.");
+        }
+        Toast.makeText(getActivityContext(), msg, Toast.LENGTH_LONG).show();
+    }
 
     /**
      * 避免内存泄露的Handler

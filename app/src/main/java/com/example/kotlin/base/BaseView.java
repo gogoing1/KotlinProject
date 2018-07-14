@@ -8,4 +8,6 @@ package com.example.kotlin.base;
 public interface BaseView {
 
     AbstractActivity getActivityContext();
+
+    void showToastMessage(String msg);
 }
