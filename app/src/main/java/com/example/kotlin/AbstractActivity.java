@@ -41,9 +41,9 @@ public abstract class AbstractActivity extends AppCompatActivity {
 
     public abstract int setContentView();
 
-    public abstract void bindViews(Bundle saveInstanceState);
+    protected abstract void bindViews(Bundle saveInstanceState);
 
-    public abstract void initData();
+    protected abstract void initData();
 
 
     /**

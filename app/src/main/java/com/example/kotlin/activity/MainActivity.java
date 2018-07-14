@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.kotlin.AbstractActivity;
+import com.example.kotlin.AbstractMvpActivity;
+import com.example.kotlin.BasePresenter;
 import com.example.kotlin.R;
 
 /**
@@ -12,7 +14,7 @@ import com.example.kotlin.R;
  * Email:cq_816102@163.com
  * Tips:
  */
-public class MainActivity extends AbstractActivity {
+public class MainActivity extends AbstractMvpActivity {
 
     @Override
     public int setContentView() {
@@ -30,9 +32,15 @@ public class MainActivity extends AbstractActivity {
     }
 
     @Override
-    public void initData() {
+    protected void initData() {
 
     }
+
+    @Override
+    protected BasePresenter newPresenter() {
+        return null;
+    }
+
 
     /**
      * 主界面不支持侧滑关闭
