@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.kotlin.activity.MvpActivity;
+import com.example.kotlin.view.activity.MvpActivity;
 import com.example.kotlin.base.AbstractMvpActivity;
 import com.example.kotlin.base.BasePresenter;
 

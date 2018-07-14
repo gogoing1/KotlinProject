@@ -1,8 +1,7 @@
-package com.example.kotlin.activity;
+package com.example.kotlin.view.activity;
 
 import android.os.Bundle;
 
-import com.example.kotlin.base.AbstractActivity;
 import com.example.kotlin.R;
 import com.example.kotlin.base.AbstractMvpActivity;
 import com.example.kotlin.presenter.MvpContract;

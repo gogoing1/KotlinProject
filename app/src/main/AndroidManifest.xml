@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MvpActivity"></activity>
+        <activity android:name=".view.activity.MvpActivity"></activity>
         <activity android:name=".base.AbstractActivity"></activity>
     </application>
 

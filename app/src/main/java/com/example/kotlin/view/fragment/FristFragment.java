@@ -1,4 +1,4 @@
-package com.example.kotlin.fragment;
+package com.example.kotlin.view.fragment;
 
 import android.os.Bundle;
 import android.view.View;
