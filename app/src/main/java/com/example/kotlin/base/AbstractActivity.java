@@ -1,4 +1,4 @@
-package com.example.kotlin;
+package com.example.kotlin.base;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.kotlin.R;
 import com.example.kotlin.utils.ScreenUtils;
 import com.example.kotlin.utils.SoftInputUtils;
 

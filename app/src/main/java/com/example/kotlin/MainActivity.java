@@ -1,13 +1,12 @@
-package com.example.kotlin.activity;
+package com.example.kotlin;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.kotlin.AbstractActivity;
-import com.example.kotlin.AbstractMvpActivity;
-import com.example.kotlin.BasePresenter;
-import com.example.kotlin.R;
+import com.example.kotlin.activity.MvpActivity;
+import com.example.kotlin.base.AbstractMvpActivity;
+import com.example.kotlin.base.BasePresenter;
 
 /**
  * Created by chenqi on 2018/7/11 17:50
@@ -26,7 +25,7 @@ public class MainActivity extends AbstractMvpActivity {
         findViewById(R.id.tv_content).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,SecondActivity.class));
+                startActivity(new Intent(MainActivity.this,MvpActivity.class));
             }
         });
     }

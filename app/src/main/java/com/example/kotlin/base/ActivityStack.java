@@ -1,4 +1,4 @@
-package com.example.kotlin;
+package com.example.kotlin.base;
 
 import android.app.Activity;
 import android.support.annotation.Nullable;
