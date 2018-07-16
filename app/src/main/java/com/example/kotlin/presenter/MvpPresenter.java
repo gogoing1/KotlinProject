@@ -1,10 +1,7 @@
 package com.example.kotlin.presenter;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.example.kotlin.model.MvpDataSource;
-import com.example.kotlin.net.RequestCallBack;
+import com.example.kotlin.net.NetCallBackListener;
 
 /**
  * Created by chenqi on 2018/7/14 14:31
@@ -23,7 +20,7 @@ public class MvpPresenter extends MvpContract.Presenter{
 
     @Override
     public void onStart() {
-        getLoginStatus();
+        //getLoginStatus();
     }
 
     @Override
@@ -33,20 +30,15 @@ public class MvpPresenter extends MvpContract.Presenter{
 
     @Override
     public void getLoginStatus() {
-        mDataSource.getLoginStatus(new RequestCallBack<Boolean>() {
+        mDataSource.getLoginStatus(new NetCallBackListener<Boolean>() {
             @Override
-            public void onSuccess(Boolean data) {
-                if(data){
-                    view.showToastMessage("登录成功");
-                }else {
-                    view.showToastMessage("登录失败");
-                }
+            public void onSuccess(int code, Boolean result) {
+
             }
 
             @Override
-            public void onFailure(int code, String msg) {
-                //模拟请求失败的状态...
-                view.showToastMessage("请求失败");
+            public void onFailure(int errCode, String msg) {
+
             }
         });
     }

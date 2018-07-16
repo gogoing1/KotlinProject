@@ -3,7 +3,7 @@ package com.example.kotlin.model;
 import android.content.Context;
 
 import com.example.kotlin.base.BaseDataSource;
-import com.example.kotlin.net.RequestCallBack;
+import com.example.kotlin.net.NetCallBackListener;
 
 /**
  * Created by chenqi on 2018/7/14 15:19
@@ -19,6 +19,6 @@ public abstract class MvpDataSource extends BaseDataSource{
     /**
      * 模拟获取登陆状态
      */
-    public abstract void getLoginStatus(RequestCallBack<Boolean> cb);
+    public abstract void getLoginStatus(NetCallBackListener<Boolean> cb);
 
 }
