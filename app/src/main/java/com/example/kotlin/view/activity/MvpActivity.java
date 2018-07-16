@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import com.example.kotlin.R;
 import com.example.kotlin.base.AbstractMvpActivity;
+import com.example.kotlin.model.MvpDataSourceImpl;
 import com.example.kotlin.presenter.MvpContract;
+import com.example.kotlin.presenter.MvpPresenter;
 
 public class MvpActivity extends AbstractMvpActivity<MvpContract.Presenter> implements MvpContract.View {
 
@@ -26,6 +28,6 @@ public class MvpActivity extends AbstractMvpActivity<MvpContract.Presenter> impl
 
     @Override
     protected MvpContract.Presenter newPresenter() {
-        return null;
+        return new MvpPresenter(this,new MvpDataSourceImpl(this));
     }
 }
