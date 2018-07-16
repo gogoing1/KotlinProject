@@ -7,6 +7,7 @@
 <p>屏幕管理工具类ScreenUtils</p>
 <p> </p>
 <p>功能区</p>
+<p>Model数据请求模板</p>
 <p>Activity栈ActivityStack</p>
 <p>Activity启动与关闭动画</p>
 <p>基类处理滑动关闭Activity界面</p>
