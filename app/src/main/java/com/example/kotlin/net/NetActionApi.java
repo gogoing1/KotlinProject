@@ -26,7 +26,7 @@ public class NetActionApi {
 
     public <T> void postToApi(String[] keys, String[] values, String url, final NetCallBackListener<T> callBackListener) {
         if (!hasNetWorkConnect(mContext)) {//网络异常
-            //callBackListener.onFailure();
+            callBackListener.onFailure(NetCode.ERROR_NET_CONNECT,"网络异常");
             return;
         }
 
