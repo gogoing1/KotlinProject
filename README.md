@@ -14,5 +14,6 @@
 <p>基类处理滑动关闭Activity界面</p>
 <p>基类处理点击屏幕除了EditText 之外的任意地方关闭软键盘</p>
 <p>多线程练习</p>
-  <p>CountDownLatch</p>
-  <p>ExecutorServices</p>
+<p>CountDownLatch</p>
+<p>ExecutorServices</p>
+<p>Synchronized</p>
