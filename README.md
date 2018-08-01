@@ -15,6 +15,9 @@
 <p>基类处理右滑动关闭Activity</p>
 <p>基类处理点击屏幕除了EditText 之外的任意地方关闭软键盘</p>
 
+## Kotlin
+
+
 ## 知识点复习与积累（JAVA & Android）
 ### 多线程
 <p>CountDownLatch</p>
