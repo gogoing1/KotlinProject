@@ -14,6 +14,7 @@
 <p>Activity启动与关闭动画处理</p>
 <p>基类处理右滑动关闭Activity</p>
 <p>基类处理点击屏幕除了EditText 之外的任意地方关闭软键盘</p>
+<p>DialogFragment封装</p>
 
 ## Kotlin
 
