@@ -7,7 +7,34 @@ package com.example.kotlin.thread.LowLevelProductConsumer;
  */
 public class App {
 
-    public static void main(){
+    public static void main(String[] args) throws InterruptedException {
+        final Processor processor = new Processor();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    processor.product();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    processor.cousumer();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
+        thread1.start();
+
+        Thread.sleep(30000);
+        System.exit(0);
     }
 }
