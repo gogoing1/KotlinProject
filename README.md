@@ -24,3 +24,4 @@
 <p>CountDownLatch</p>
 <p>ExecutorServices</p>
 <p>Synchronized</p>
+<p>LinkedBlockingQueue</p>
