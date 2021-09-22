@@ -1,0 +1,175 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wingto.winlight.CallActivity">
+
+    <com.wingto.winlight.ui.views.AutoFitTextureView
+        android:id="@+id/call_texture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/datetime_layout"
+        layout="@layout/title_datetime_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/calling_display_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/calling_bg_color">
+        <TextView
+            android:id="@+id/calling_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="60px" />
+
+        <com.wingto.winlight.ui.views.WaveCircleView
+            android:id="@+id/calling_view"
+            android:layout_width="@dimen/calling_image_size"
+            android:layout_height="@dimen/calling_image_size"
+            android:layout_below="@id/calling_status_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="98px"
+            android:clickable="true"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/iv_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/calling_center" />
+        </com.wingto.winlight.ui.views.WaveCircleView>
+
+        <com.wingto.winlight.ui.views.WaveCircleView
+            android:id="@+id/belling_view"
+            android:layout_width="@dimen/belling_image_size"
+            android:layout_height="@dimen/belling_image_size"
+            android:layout_below="@id/calling_status_view"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:fitsSystemWindows="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_plus_bell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="36dp"
+                android:layout_marginRight="6dp"
+                android:src="@mipmap/belling" />
+            <com.yuyashuai.frameanimation.FrameAnimationView
+                android:id="@+id/bell_anim_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </com.wingto.winlight.ui.views.WaveCircleView>
+
+        <TextView
+            android:id="@+id/hangup_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/calling_view"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60px"
+            android:gravity="center"
+            android:drawableTop="@drawable/btn_hangup_selector"
+            android:drawablePadding="20px"
+            android:text="@string/calling_reject_title"
+            android:textColor="@color/white"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/accept_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/calling_view"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60px"
+            android:gravity="center"
+            android:drawableTop="@drawable/btn_accept_selector"
+            android:drawablePadding="20px"
+            android:text="@string/calling_accept_title"
+            android:textColor="@color/white"
+            android:textSize="30px"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/called_display_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/calling_bg_color"
+        android:visibility="gone">
+
+        <TextureView
+            android:id="@+id/preview_texture"
+            android:layout_width="@dimen/call_video_display_w"
+            android:layout_height="@dimen/call_video_display_h"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="45px"
+            android:layout_marginRight="45px"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/voice_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="96px"
+            android:layout_marginStart="100px"
+            android:src="@mipmap/icon_voice"/>
+
+        <include
+            android:id="@+id/calling_seekbar"
+            android:layout_width="@dimen/calling_voice_height"
+            android:layout_height="@dimen/calling_voice_height"
+            android:layout_above="@id/voice_view"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="166px"
+            android:layout_marginStart="20px"
+            layout="@layout/calling_seekbar"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/called_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70px"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="34px" />
+
+        <ImageView
+            android:id="@+id/called_hangup_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="86px"
+            android:layout_marginEnd="100px"
+            android:src="@mipmap/hang_up" />
+
+        <TextView
+            android:id="@+id/called_time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/called_hangup_view"
+            android:layout_alignEnd="@id/called_hangup_view"
+            android:layout_above="@id/called_hangup_view"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="100px"
+            android:layout_marginBottom="40px"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="34px"/>
+    </RelativeLayout>
+</RelativeLayout>
